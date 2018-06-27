@@ -1,0 +1,16 @@
+node_modules
+common/dbConfig.js
+company/node_modules
+user/node_modules
+deviceProvision/node_modules
+device/node_modules
+LOG/
+.idea/*
+ui/node_modules
+ui/react-ui/node_modules
+ui/react-ui/dist
+ui/common/mainConfig.js
+ui/package-lock.json
+react-ui/src/config/uiConfig.js
+/nbproject
+/.project

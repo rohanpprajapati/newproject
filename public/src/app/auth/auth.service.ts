@@ -6,8 +6,6 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-
 @Injectable()
 export class AuthService {
 
@@ -23,15 +21,7 @@ export class AuthService {
 	checkLoginCredentials(access){
 		access = JSON.stringify(access);
 		
-		
-		
-		let headers = new Headers({ "Content-Type": "application/json" });
-    	//let options = new RequestOptions({ headers: headers })
-			
-
-		return this.http.post("http://localhost:3072/api/v1.1/auth/login", access, {
-		  headers: headers
-		})
+		return this.http.post("http://localhost:3072/api/v1.1/auth/login", access)
 	        .map(this.extractData)
 	        .catch(this.handleError);
 	}
@@ -48,7 +38,7 @@ export class AuthService {
 		return Observable.throw(error.message || error);
 	}
 
-    constructor(public http: HttpClient) {
+    constructor(public http: Http) {
     }
 
 }

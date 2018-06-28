@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, URLSearchParams, RequestOptions } from '@angular/http';
+//import { Http, Response, Headers, URLSearchParams, RequestOptions } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+
 
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
@@ -10,20 +12,18 @@ import 'rxjs/add/operator/catch';
 export class AuthService {
 
 	/* Get Basic Token */
-	basicToken()
+	basicToken(): Observable<any>
 	{
-		return this.http.get("http://localhost:3072/api/v1.1/auth/basic-token")
-	        .map(this.extractData)
-	        .catch(this.handleError);
+		return this.http.get("/api/v1.1/auth/basic-token")
+	        .map(res => res )
+	        .catch(res => res );
 	}
 
 	/* Check Login API */
 	checkLoginCredentials(access){
 		access = JSON.stringify(access);
-		
-		return this.http.post("http://localhost:3072/api/v1.1/auth/login", access)
-	        .map(this.extractData)
-	        .catch(this.handleError);
+		return this.http.post("/api/v1.1/auth/login", access)
+				  .map(res => res )
 	}
 	
 	/* Response Success Data */
@@ -38,7 +38,7 @@ export class AuthService {
 		return Observable.throw(error.message || error);
 	}
 
-    constructor(public http: Http) {
+    constructor(public http: HttpClient) {
     }
 
 }

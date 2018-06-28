@@ -14,13 +14,14 @@ export class AuthComponent implements OnInit {
   constructor(private authService:AuthService, private cookieService:CookieService) { }
 
   ngOnInit() {
+  		console.log('test')
   		/* Get Basic Token */
   		this.authService.basicToken().subscribe(
                 data => {  
+					console.log(data.data);
 					this.cookieService.set( 'Basic', data.data );
 				},
 				error =>  {
-					console.log('Basic Error')
 					console.log(error)
 				}
 		);
@@ -29,15 +30,17 @@ export class AuthComponent implements OnInit {
   /* Login Process */
   loginProcess()
   {
-  	alert('test')
-  	this.authService.checkLoginCredentials(this.loginAccess).subscribe(
+   	this.authService.checkLoginCredentials(this.loginAccess).subscribe(
                 data => {  
-					console.log('succ');
+					console.log('success');
 					console.log(data);
+					alert('Success');
 		        },
 				error =>  {
 					console.log('error')
-					console.log(error)
+					console.log(error.error)
+					var errorRes = error.error;
+					alert(errorRes.message)
 				}
 	);
   }

@@ -1,0 +1,39 @@
+<div class="login-box">
+  <div class="login-logo">
+    <a><b>Betting</b></a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body">
+    <p class="login-box-msg">Sign in to start your betting</p>
+
+    <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && loginProcess(loginAccess)" #f="ngForm" novalidate>
+      <div class="form-group has-feedback"  [ngClass]="{ 'has-error': ( uname.errors?.required || uname.errors?.pattern  && uname.touched ) && uname.invalid && (uname.dirty || uname.touched) }">
+        <input type="email" [(ngModel)]="loginAccess.username" name="username" class="form-control" placeholder="Username" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" #uname="ngModel" required>
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <div *ngIf="uname.invalid && (uname.dirty || uname.touched)"
+                class="help-block"> 
+                <div *ngIf = "uname.errors?.required">
+                    Username is required
+                </div>
+                <div *ngIf = "uname.errors?.pattern && uname.touched">
+                    Username doesn't seem right
+                </div>
+             </div>
+      </div>
+      <div class="form-group has-feedback" [ngClass]="{ 'has-error': paswrd.errors?.required && paswrd.invalid && (paswrd.dirty || paswrd.touched) }">
+        <input type="password" [(ngModel)]="loginAccess.password" name="password" class="form-control" placeholder="Password" #paswrd="ngModel" required>
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+         <div *ngIf="paswrd.invalid && (paswrd.dirty || paswrd.touched) && paswrd.errors?.required" class="help-block">Password is required</div>
+      </div>
+      <div class="row">
+        <!-- /.col -->
+        <div class="col-xs-4">
+          <button type="submit"  class="btn btn-primary btn-block btn-flat">Sign In</button>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
+    <!-- /.social-auth-links -->
+  </div>
+  <!-- /.login-box-body -->
+</div>

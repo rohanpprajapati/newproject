@@ -6,28 +6,34 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { CookieService } from 'ngx-cookie-service';
 
-
 import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
-import { UserComponent } from './user/user.component';
-import { AboutComponent } from './about/about.component';
-import { NavComponent } from './nav/nav.component';
-import { AuthComponent } from './auth/auth.component';
+
+import { LoginComponent } from './component/login/login.component';
+import{LoginserviceService} from './component/login/loginservice.service';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { TokenInterceptor } from './auth/token.interceptor';
-
-
-import{UserService} from './user/user.service';
-import{AuthService} from './auth/auth.service';
-
+import { TokenInterceptor } from './common/token.interceptor';
+import { AuthGuard } from './common/_guards/index';
+import { HeaderComponent } from './common/header/header.component';
+import{HeaderService} from './common/header/header.service';
+import { FooterComponent } from './common/footer/footer.component';
+import{FooterService} from './common/footer/footer.service';
+import { LeftSidebarComponent } from './common/left-sidebar/left-sidebar.component';
+import{LeftSidebarService} from './common/left-sidebar/left-sidebar.service';
+import { AlertComponent } from './common/alert/alert.component';
+import { AlertService } from './common/alert/alert.service';
+ 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
-    AboutComponent,
-    NavComponent,
-    AuthComponent
+    LoginComponent,
+    DashboardComponent,
+    HeaderComponent,
+    FooterComponent,
+    LeftSidebarComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +41,7 @@ import{AuthService} from './auth/auth.service';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [UserService, AuthService, CookieService,{
+  providers: [LoginserviceService, AuthGuard, HeaderService, FooterService, LeftSidebarService, AlertService, CookieService,{
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true

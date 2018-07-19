@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../bower_components/bootstrap/dist/css/bootstrap.min.css";
+@import "../bower_components/font-awesome/css/font-awesome.min.css";
+@import "assets/dist/css/AdminLTE.min.css";
+@import "../bower_components/Ionicons/css/ionicons.min.css";
+@import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"; 
+@import "assets/plugins/iCheck/square/blue.css";
+@import "assets/dist/css/skins/_all-skins.min.css";
+@import "assets/dist/css/common-style.css";

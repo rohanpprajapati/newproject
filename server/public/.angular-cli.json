@@ -19,13 +19,15 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
-        "styles.css",
-         "../node_modules/font-awesome/css/font-awesome.min.css"
+        "styles.css"
       ],
       "scripts": [
-        "../node_modules/jquery/dist/jquery.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.js"
+        "../bower_components/jquery/dist/jquery.min.js",
+        "../bower_components/bootstrap/dist/js/bootstrap.min.js",
+        "../bower_components/jquery-slimscroll/jquery.slimscroll.min.js",
+        "../bower_components/fastclick/lib/fastclick.js",
+        "assets/dist/js/adminlte.min.js",
+        "assets/dist/js/demo.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

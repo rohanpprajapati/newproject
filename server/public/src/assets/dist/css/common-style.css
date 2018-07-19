@@ -1,0 +1,8 @@
+.navbar.navbar-static-top.topmenu{z-index:4;}
+.alert{ position:fixed; top:15px; right:15px; z-index:1040; }
+.div_bid{padding:4px; text-align:center;background:#5daedc;}
+.div_bid.value{color:#fff; font-size:22px;font-weight:bold;}
+.div_bid.lable{color:#fff;}
+.div_title{vertical-align:middle !important; text-align:center; font-weight:600;}
+.div_time{vertical-align:middle !important; text-align:center;}
+.table_title{text-align:center; font-weight:600 !important; font-size:19px;}

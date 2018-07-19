@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, PreloadAllModules } from '@angular/router';
-import{AuthComponent} from './auth/auth.component';
 
-import{UserComponent} from './user/user.component';
-import{AboutComponent} from './about/about.component';
-
+import { LoginComponent } from './component/login/login.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { AuthGuard } from './common/_guards/index';
 
 @NgModule({
     imports: [
     RouterModule.forRoot([
-         { path: 'user', component: UserComponent },
-         { path: 'about', component: AboutComponent },
-		 { path: 'auth', component: AuthComponent }
+		 { path: 'login', component: LoginComponent },
+		 { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+		 
+		 // otherwise redirect to home
+	     { path: '**', redirectTo: '' }
 
     ],{preloadingStrategy:PreloadAllModules})
   ],
